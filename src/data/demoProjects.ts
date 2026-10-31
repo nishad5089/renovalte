@@ -25,7 +25,7 @@ export const demoProjects: DemoProject[] = [
     budget: 12000,
     status: "new",
     inspected: false,
-    image: "/images/project-kitchen.jpg",
+    image: `${import.meta.env.BASE_URL}images/project-kitchen.jpg`,
     scope:
       "Replace cabinets and worktop, improve lighting and retain the existing layout where possible.",
     scopeDe:
@@ -41,7 +41,7 @@ export const demoProjects: DemoProject[] = [
     budget: 9500,
     status: "acknowledged",
     inspected: true,
-    image: "/images/project-bathroom.jpg",
+    image: `${import.meta.env.BASE_URL}images/project-bathroom.jpg`,
     scope:
       "Update the family bathroom with a walk-in shower, new vanity and modern finishes.",
     scopeDe:
@@ -57,7 +57,7 @@ export const demoProjects: DemoProject[] = [
     budget: 4200,
     status: "in_progress",
     inspected: true,
-    image: "/images/project-living.jpg",
+    image: `${import.meta.env.BASE_URL}images/project-living.jpg`,
     scope:
       "Refinish the original parquet and repaint walls while retaining the character of the building.",
     scopeDe:
@@ -73,7 +73,7 @@ export const demoProjects: DemoProject[] = [
     budget: 5800,
     status: "proposal_sent",
     inspected: false,
-    image: "/images/project-bedroom.jpg",
+    image: `${import.meta.env.BASE_URL}images/project-bedroom.jpg`,
     scope:
       "Replace bedroom flooring and skirting boards with a warm oak finish.",
     scopeDe:
@@ -89,7 +89,7 @@ export const demoProjects: DemoProject[] = [
     budget: 7000,
     status: "completed",
     inspected: true,
-    image: "/images/project-refresh.jpg",
+    image: `${import.meta.env.BASE_URL}images/project-refresh.jpg`,
     scope:
       "Refresh cabinet fronts, worktop and splashback without a complete kitchen replacement.",
     scopeDe:
