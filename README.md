@@ -51,7 +51,7 @@ The organization is informed by public BAU AI examples (https://www.bauai.eu/), 
 
 ## Project conversations
 
-Opening a project for the first time shows its details. Later openings of that project go directly to the chat, including after refresh/sign-in in the same browser. **Open chat** continues immediately from details. The three-dot header menu provides **Change status**, **Latest sent proposal**, **Project details** and **Back to overview**.
+Every project opens directly in the chat, including on the first visit. The conversation starts with a project-specific customer-requirements summary (scope, location, approximate customer area, material preferences and timing), with unknowns and demo provenance preserved. Details are available only through **Project details** in the three-dot menu; **Open chat** returns from details. The three-dot header menu provides **Change status**, **Latest sent proposal**, **Project details** and **Back to overview**.
 
 Chat supports text, selected JPG/PNG/WebP images (up to 10 MB), and actual local microphone recordings (up to two minutes / 10 MB). Stop recording, review/play the attachment, then send. Microphone denial or unsupported recording leaves text input available. Audio transcription and visual analysis are not connected: the local assistant explicitly acknowledges that limitation and uses text/project context only. No media or chat is sent to an external AI service.
 

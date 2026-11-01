@@ -1,3 +1,4 @@
+import { projectBriefs } from "../data/projectBriefs";
 import { useEffect, useRef, useState } from "react";
 import type { DemoProject } from "../data/demoProjects";
 import {
@@ -191,6 +192,7 @@ export function ProjectChat({
     input = useRef<HTMLTextAreaElement>(null),
     side = useRef<HTMLElement>(null);
   const proposal = lastSentProposal(project.id);
+  const brief = projectBriefs[project.id];
   const voice = useVoiceNote((blob) => {
     if (blob.size > 10 * 1024 * 1024) {
       setError(
@@ -313,15 +315,17 @@ export function ProjectChat({
           aria-live="polite"
           aria-label={de ? "Unterhaltung" : "Conversation"}
         >
-          {messages.length === 0 && (
-            <div className="conversation-bubble assistant">
-              <p>
-                {de
-                  ? "Ich habe den Projektbrief vorliegen. Was möchten Sie zu diesem Vorhaben klären? Sie können schreiben, ein Foto hinzufügen oder eine Sprachnotiz aufnehmen."
-                  : "I have the project brief. What would you like to clarify about this project? You can type, add a photo or record a voice note."}
-              </p>
-            </div>
-          )}
+          <div className="conversation-bubble assistant requirement-summary">
+            <strong>{de ? "Kundenwünsche auf einen Blick" : "Customer requirements at a glance"}</strong>
+            <p>{de ? project.scopeDe : project.scope}</p>
+            <ul>
+              <li><strong>{de ? "Ort:" : "Location:"}</strong> {project.city}</li>
+              <li><strong>{de ? "Fläche:" : "Area:"}</strong> ca. {brief.area.toLocaleString(de ? "de-DE" : "en-GB")} m² · {de ? brief.areaNote.de : brief.areaNote.en}</li>
+              <li><strong>{de ? "Materialwünsche:" : "Material preferences:"}</strong> {de ? brief.materials.de : brief.materials.en}</li>
+              <li><strong>{de ? "Zeitraum:" : "Timing:"}</strong> {de ? brief.timing.de : brief.timing.en}</li>
+            </ul>
+            <small>{de ? "Quelle: Kundenbrief · Beispieldaten · Angaben noch zu bestätigen" : "Source: customer brief · demo data · details to be confirmed"}</small>
+          </div>
           {messages.map((message) => (
             <div
               key={message.id}

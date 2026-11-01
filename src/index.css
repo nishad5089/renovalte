@@ -330,3 +330,7 @@ summary:focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; }
 .offer-signature-boxes div {border:1px solid #c9d7ea;border-radius:6px;padding:10px;min-height:100px;display:flex;flex-direction:column;justify-content:space-between;font-size:9px;}
 .offer-signature-boxes span {border-top:1px solid #bbcce3;padding-top:5px;}
 @media(max-width:600px) {.offer-paper {padding:18px 12px;}.offer-paper table {font-size:9px;}.offer-paper td,.offer-paper th {padding:7px 3px;}}
+.requirement-summary > strong {display:block;color:#233e61;margin-bottom:10px;}
+.requirement-summary ul {padding-left:18px;margin:12px 0;}
+.requirement-summary li {margin:8px 0;line-height:1.6;}
+.requirement-summary li strong {font-weight:600;}

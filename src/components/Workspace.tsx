@@ -7,8 +7,6 @@ import { PreferenceControls } from "./PreferenceControls";
 import { ProjectDetails } from "./ProjectDetails";
 import { ProjectChat, ConversationMenu, type ChatPanel } from "./ProjectChat";
 import {
-  markProjectViewed,
-  viewedProjects,
   loadProjectTracking,
   saveProjectTracking,
 } from "../data/projectChat";
@@ -44,15 +42,8 @@ export function Workspace({
       return demoProjects;
     }
   });
-  const [viewed, setViewed] = useState<string[]>(() => {
-    try {
-      return viewedProjects();
-    } catch {
-      return [];
-    }
-  });
   const [visitError, setVisitError] = useState("");
-  const [projectView, setProjectView] = useState<"details" | "chat">("details");
+  const [projectView, setProjectView] = useState<"details" | "chat">("chat");
   const [chatPanel, setChatPanel] = useState<ChatPanel>(null);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [filter, setFilter] = useState<ProjectStatus | "all">("all");
@@ -64,22 +55,10 @@ export function Workspace({
   );
   function openProject(item: DemoProject) {
     setSelectedId(item.id);
-    setProjectView(viewed.includes(item.id) ? "chat" : "details");
+    setProjectView("chat");
     setChatPanel(null);
-    if (!viewed.includes(item.id)) {
-      try {
-        markProjectViewed(item.id);
-        setVisitError("");
-      } catch {
-        setVisitError(
-          de
-            ? "Besuchsverlauf konnte nicht gespeichert werden. Er gilt nur für diese Sitzung."
-            : "Visit history could not be saved. It applies only to this session.",
-        );
-      }
-      setViewed((ids) => [...ids, item.id]);
-    }
   }
+
   function updateProject(status: ProjectStatus, inspected: boolean) {
     if (!project) return;
     try {
